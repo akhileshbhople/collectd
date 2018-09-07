@@ -1,12 +1,13 @@
 os: linux-ppc64le
-sudo: false
+sudo: required
 dist: xenial
 compiler:
   - gcc
+  - clang
 language: c
 before_install:
-  - apt-get update -qq
-  - apt-get install -y git gcc libssl-dev autoconf libgcrypt11-dev automake make flex bison bison+ pkg-config libtool libltdl-dev
+  - sudo apt-get update -qq
+  - sudo apt-get install -y git gcc libssl-dev autoconf libgcrypt11-dev automake make flex bison bison+ pkg-config libtool libltdl-dev
 script:
   - sh build.sh
   - ./configure
