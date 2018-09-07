@@ -1,8 +1,8 @@
-#env:
-#  global:
+env:
+  global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    # via the "travis encrypt" command using the project repo's public key
-#   - secure: "ZdWWp0XX3C4sLIp4lqeQTWC7vt+GsWjmyRiD17T9833NBAW4dddz310I6iyeXe6oX09ZFFiVIN4ogx9ANcNBx9jriGXI2/82nBhpxOJBebet8JCNS5VeTr4rDSfQOKP+Oc+ko5KbbghTuAtO2CFYiH3jZUcn4TdsYbVanf+TwUs="
+   - secure: "ZdWWp0XX3C4sLIp4lqeQTWC7vt+GsWjmyRiD17T9833NBAW4dddz310I6iyeXe6oX09ZFFiVIN4ogx9ANcNBx9jriGXI2/82nBhpxOJBebet8JCNS5VeTr4rDSfQOKP+Oc+ko5KbbghTuAtO2CFYiH3jZUcn4TdsYbVanf+TwUs="
 
 os: linux-ppc64le
 sudo: required
@@ -39,7 +39,6 @@ before_install:
       libmicrohttpd-dev
       libmnl-dev
       libmodbus-dev
-#      libmosquitto0-dev
       libmysqlclient-dev
       libnotify-dev
       libopenipmi-dev
@@ -72,6 +71,7 @@ before_install:
       python3-dev
       python-dev
       xfslibs-dev
+      libmosquitto0-dev
 before_script: autoreconf -fi
 script:
   - if [[ "${TRAVIS_BRANCH}" == "coverity_scan" ]]; then exit 0; fi
