@@ -9,7 +9,7 @@ sudo: required
 dist: xenial
 compiler:
   - gcc
-  - clang
+#  - clang
 language: c
 before_install:
   # When building the coverity_scan branch, allow only the first job to continue to avoid travis-ci/travis-ci#1975.
@@ -39,7 +39,7 @@ before_install:
       libmicrohttpd-dev
       libmnl-dev
       libmodbus-dev
-      libmosquitto0-dev
+#      libmosquitto0-dev
       libmysqlclient-dev
       libnotify-dev
       libopenipmi-dev
