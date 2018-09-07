@@ -5,7 +5,7 @@ env:
    - secure: "ZdWWp0XX3C4sLIp4lqeQTWC7vt+GsWjmyRiD17T9833NBAW4dddz310I6iyeXe6oX09ZFFiVIN4ogx9ANcNBx9jriGXI2/82nBhpxOJBebet8JCNS5VeTr4rDSfQOKP+Oc+ko5KbbghTuAtO2CFYiH3jZUcn4TdsYbVanf+TwUs="
 
 os: linux-ppc64le
-sudo: false
+sudo: required
 dist: xenial
 compiler:
   - gcc
@@ -14,8 +14,8 @@ language: c
 before_install:
   # When building the coverity_scan branch, allow only the first job to continue to avoid travis-ci/travis-ci#1975.
   - if [[ "${TRAVIS_BRANCH}" == "coverity_scan" && ! "${TRAVIS_JOB_NUMBER}" =~ \.1$ ]]; then exit 0; fi
-  - apt-get update
-  - apt-get install --no-install-recommends
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq --no-install-recommends
       autotools-dev
       iptables-dev
       libatasmart-dev
